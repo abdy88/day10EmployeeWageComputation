@@ -12,14 +12,15 @@ public class EmpWage {
 	void calculateMonthlyWage() {
 
 		int wagePerHour = 20;
-		int workingHrs = 10;
+		int workingHrs = 0;
+		int totalWorkingHrs=0;
 		int isFulltime = 1;
 		int isParttime = 2;
 		int isAbsent = 0;
 		int dailyEmployeeWage = 0;
 		int totalWage = 0;
 
-		for (int i = 1; i <= 20; i++) {
+		for (int i = 1; (totalWorkingHrs<=100)&&(i <= 20); i++) {
 
 			int checkAttendance = (int) (Math.random() * 3);
 
@@ -27,6 +28,7 @@ public class EmpWage {
 
 			case 1: {
 				System.out.println("employee is present fulltime");
+				workingHrs = 10;
 				dailyEmployeeWage = wagePerHour * workingHrs;
 				System.out.println("dailyemployeewage = " + dailyEmployeeWage);
 			}
@@ -34,24 +36,34 @@ public class EmpWage {
 
 			case 2: {
 				System.out.println("employee is present part time");
-				dailyEmployeeWage = wagePerHour * 8;
+				workingHrs = 8;
+				dailyEmployeeWage = wagePerHour * workingHrs;
 				System.out.println("dailyemployeewage = " + dailyEmployeeWage);
 			}
 				break;
 
 			case 0:
 
-			{
+			{	
+				workingHrs = 0;
 				System.out.println("employee is absent");
 				break;
 			}
 			}
-
+			
+			totalWorkingHrs=totalWorkingHrs+workingHrs;
 			totalWage = totalWage + dailyEmployeeWage;
+			
+			if (totalWorkingHrs>100)
+				
+			{	System.out.println("greater than 100hrs hence ignoring last iteration");
+				totalWorkingHrs=totalWorkingHrs-workingHrs;
+				totalWage=totalWage-dailyEmployeeWage;}
 
 		}
 
 		System.out.println("total wage for the month :" + totalWage);
+		System.out.println("totalWorkingHrs :" + totalWorkingHrs);
 
 	}
 
