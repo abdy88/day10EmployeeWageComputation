@@ -3,11 +3,22 @@ package bl.com.empwage;
 public class EmpWage {
 
 	public static void main(String[] args) {
-		EmpWage obj1 = new EmpWage();
+		
+		EmpWageBuilder obj1 = new EmpWageBuilder();
 		System.out.println("Welcome to employee wage computation program");
 		obj1.calculateMonthlyWage();
 
 	}
+
+
+}
+
+
+
+class EmpWageBuilder{
+	
+	
+	
 
 	void calculateMonthlyWage() {
 
@@ -103,3 +114,30 @@ public class EmpWage {
 	}
 
 }
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
